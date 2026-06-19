@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-->0){
+//            int n= sc.nextInt();
+//            int[] arr = new int[n];
+//            for(int i=0; i<n; i++){
+//                arr[i]=sc.nextInt();
+//            }
+            long a = sc.nextLong();
+            long b = sc.nextLong();
+            long c = sc.nextLong();
+            long d = sc.nextLong();
+            long count=0;
+            if(a==c && b==d){
+                System.out.println(0);
+                continue;
+            }
+            if(d<b){
+                System.out.println(-1);
+                continue;
+            }
+            long changeY=d-b;
+            b=b+changeY;
+            a=a+changeY;
+            count+=changeY;
+            if(c>a){
+                System.out.println(-1);
+                continue;
+            }
+            else{
+                long changeX=Math.abs(c-a);
+                count+=changeX;
+            }
+            System.out.println(count);
+        }
+    }
+}
