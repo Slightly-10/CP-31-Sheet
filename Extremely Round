@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-->0){
+            int n = sc.nextInt();
+            int x = 0;
+            if(n<=9){
+                x+=n;
+                System.out.println(x);
+                continue;
+            }
+            int temp = n;
+            int len=0;
+            while(temp!=0){
+                len++;
+                temp=temp/10;
+            }
+            x+=9*(len-1);
+            x += (int)(n / Math.pow(10, len - 1));
+            System.out.println(x);
+        }
+    }
+}
