@@ -1,0 +1,52 @@
+//package CodeForcesBasics;
+ 
+import java.util.ArrayList;
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int t = sc.nextInt();
+        while(t-->0){
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            for(int i=0; i<n; i++){
+                arr[i]=sc.nextInt();
+            }
+            if(n==2){
+                System.out.println("YES");
+                continue;
+            }
+            int[] freq = new int[100001];
+            for(int i=0; i<n; i++){
+                freq[arr[i]]++;
+            }
+            ArrayList<Integer> list = new ArrayList<>();
+            for (int i = 0; i < freq.length; i++) {
+                if (freq[i] > 0) {
+                    list.add(freq[i]);
+                }
+            }
+            if (list.size() == 1) {
+                System.out.println("YES");
+            }
+            else if (list.size() == 2) {
+                int odd = (n + 1) / 2;
+                int even = n / 2;
+ 
+                int f1 = list.get(0);
+                int f2 = list.get(1);
+ 
+                if ((f1 == odd && f2 == even) ||
+                        (f1 == even && f2 == odd)) {
+                    System.out.println("YES");
+                } else {
+                    System.out.println("NO");
+                }
+            }
+            else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
