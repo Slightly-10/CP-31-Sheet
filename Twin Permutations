@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-->0){
+            int n= sc.nextInt();
+            int[] arr = new int[n];
+            for(int i=0; i<n; i++){
+                arr[i]=sc.nextInt();
+            }
+            int[] crr = new int[n];
+            int[] brr = new int[n];
+            for(int i=0; i<n; i++){
+                brr[i]=arr[i];
+            }
+            Arrays.sort(brr);
+            for (int k=0; k<n; k++){
+                int i=0;
+                int j=brr.length-1;
+                while(brr[i]!=arr[k]){
+                    i++;
+                    j--;
+                }
+                crr[k]=brr[j];
+            }
+            for (int i = 0; i < n; i++) {
+                System.out.print(crr[i]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
