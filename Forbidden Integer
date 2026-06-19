@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-->0){
+            int n= sc.nextInt();
+//            int[] arr = new int[n];
+//            for(int i=0; i<n; i++){
+//                arr[i]=sc.nextInt();
+//            }
+            int k = sc.nextInt();
+            int x = sc.nextInt();
+            if(k==1 && x==1){
+                System.out.println("NO");
+                continue;
+            }
+            int count=0;
+            ArrayList<Integer> ans = new ArrayList<>();
+            if(x!=1){
+                while(n!=0){
+                    n=n-1;
+                    count++;
+                    ans.add(1);
+                }
+            }
+            else { // x=1;
+                if(k==2){
+                    if(n%2==0){
+                        while(n!=0){
+                            n=n-2;
+                            count++;
+                            ans.add(2);
+                        }
+                    }
+                }
+                else{ // k>=3 always possible
+                    if(n%2==0){ // even
+                        while(n!=0){
+                            n=n-2;
+                            count++;
+                            ans.add(2);
+                        }
+                    }
+                    else{
+                        n=n-3;
+                        count++;
+                        ans.add(3);
+                        while(n!=0){
+                                n=n-2;
+                                count++;
+                                ans.add(2);
+                        }
+                    }
+                }
+            }
+            if(n==0){
+                System.out.println("YES");
+                System.out.println(count);
+                for(int i=0; i<ans.size(); i++){
+                    System.out.print(ans.get(i)+" ");
+                }
+                System.out.println();
+            }
+            else System.out.println("NO");
+        }
+    }
+}
