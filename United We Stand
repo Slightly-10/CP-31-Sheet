@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-->0){
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            for(int i=0; i<n; i++){
+                arr[i]=sc.nextInt();
+            }
+            ArrayList<Integer> b = new ArrayList<>();
+            ArrayList<Integer> c = new ArrayList<>();
+            Arrays.sort(arr);
+            int min = arr[0];
+            for(int i=0; i<n; i++){
+                if (arr[i] == min) {
+                    b.add(arr[i]);
+                } else {
+                    c.add(arr[i]);
+                }
+            }
+            if (c.size() == 0) {
+                System.out.println(-1);
+                continue;
+            }
+            System.out.print(b.size()+" ");
+            System.out.println(c.size());
+            for(int k=0; k<b.size(); k++){
+                System.out.print(b.get(k)+" ");
+            }
+            System.out.println();
+            for(int l=0; l<c.size(); l++){
+                System.out.print(c.get(l)+" ");
+            }
+            System.out.println();
+        }
+    }
+}
