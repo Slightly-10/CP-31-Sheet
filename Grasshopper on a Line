@@ -1,0 +1,27 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int i=0; i<t; i++){
+            int x = sc.nextInt();// jump
+            int k = sc.nextInt();// divisibility test
+            int count=0;
+            ArrayList<Integer> pos = new ArrayList<>();
+                if(x%k!=0){
+                    pos.add(x);
+                    count = 1;
+                }
+                else {
+                    pos.add(x - 1);
+                    pos.add(1);
+                    count = 2;
+                }
+            System.out.println(count);
+            for(int ele: pos) System.out.print(ele+" ");
+            System.out.println();
+        }
+    }
+}    
