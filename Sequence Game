@@ -1,0 +1,34 @@
+//package CodeForcesBasics;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+            int t = sc.nextInt();
+            while (t-->0){
+                int n = sc.nextInt();
+                int[] arr = new int[n];
+                for(int i=0; i<n; i++){
+                    arr[i]=sc.nextInt();
+                }
+                ArrayList<Integer> ans = new ArrayList<>();
+                ans.add(arr[0]); // first element always same
+                for(int i=1; i<n; i++){
+                    if(arr[i]>=arr[i-1]){
+                        ans.add(arr[i]);
+                    }
+                    else{
+                        if(arr[i]!=1)ans.add(arr[i]-1);
+                        else ans.add(1);
+                        ans.add(arr[i]);
+                    }
+                }
+                System.out.println(ans.size());
+                for(int i=0; i<ans.size(); i++){
+                    System.out.print(ans.get(i)+" ");
+                }
+                System.out.println();
+            }
+    }
+}
